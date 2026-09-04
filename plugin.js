@@ -1,6 +1,6 @@
     // ==UserScript==
     // @name         PMOTM Sprites
-    // @version      1.0
+    // @version      1.1
     // @description  Replace blank sprites for Pet Mods with their DH2 sprites
     // @author       iforgetwhyimhere
     // @match        *.psim.us/*
@@ -15,7 +15,7 @@
     const customSprites = new Set();
 
     async function loadCustomSprites() {
-        const url = 'https://raw.githubusercontent.com/iforgetwhyimhere/pet-mod-sprites/refs/heads/main/replacements.txt';
+        const url = 'https://raw.githubusercontent.com/Pet-Mods/pmotm-sprites/refs/heads/main/replacements.txt';
         try {
             const response = await fetch(url);
             if (!response.ok) throw new Error(`HTTP ${response.status}`);

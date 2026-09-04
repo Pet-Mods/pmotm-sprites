@@ -16,7 +16,7 @@ The list of species names is maintained by me (iforgetwhyimhere) here in `replac
 2) Go to **Utilities**.
 
 3) Under "Import from URL", paste the following link:
-https://raw.githubusercontent.com/iforgetwhyimhere/pet-mod-sprites/refs/heads/main/plugin.js
+https://raw.githubusercontent.com/Pet-Mods/pmotm-sprites/refs/heads/main/plugin.js
 
 4) Click **Install**.
 
