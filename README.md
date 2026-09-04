@@ -8,3 +8,16 @@ Requirements: [Tampermonkey Chrome extension][1], working brain
 When installing, ignore the errors that appear. It works because the definitions are handled in the site itself.
 
 The list of species names is maintained by me (iforgetwhyimhere) here in `replacements.txt`.
+
+## How to install
+
+1) Open Tampermonkey.
+
+2) Go to **Utilities**.
+
+3) Under "Import from URL", paste the following link:
+https://raw.githubusercontent.com/iforgetwhyimhere/pet-mod-sprites/refs/heads/main/plugin.js
+
+4) Click **Install**.
+
+5) Refresh your Pokemon Showdown page, if open.
