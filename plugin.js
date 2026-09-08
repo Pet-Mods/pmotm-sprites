@@ -1,6 +1,6 @@
     // ==UserScript==
     // @name         PMOTM Sprites
-    // @version      1.4.1
+    // @version      1.4.2
     // @description  Replace blank sprites for Pet Mods with their DH2 sprites
     // @author       iforgetwhyimhere
     // @match        *.psim.us/*
@@ -13,6 +13,7 @@
     (function () {
     'use strict';
     const customSprites = new Set();
+    let modID = '';
 
     async function loadCustomSprites() {
         const url = 'https://raw.githubusercontent.com/Pet-Mods/pmotm-sprites/refs/heads/main/data.txt';
@@ -24,7 +25,7 @@
             const lines = text.split('\n').map(line => line.trim());
 
             const modIDLine = lines.find(line => line.toLowerCase().startsWith('#'));
-            const modID = modIDLine ? modIDLine.slice(1).trim() : null;
+            modID = modIDLine ? modIDLine.slice(1).trim() : null;
 
             lines
                 .map(line => line.toLowerCase())
