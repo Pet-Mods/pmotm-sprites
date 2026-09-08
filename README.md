@@ -21,17 +21,3 @@ https://raw.githubusercontent.com/Pet-Mods/pmotm-sprites/refs/heads/main/plugin.
 4) Click **Install**.
 
 5) Refresh your Pokemon Showdown page, if open.
-
-To automatically recieve updates, go to Tampermonkey, then:
-
-1) Open the plugin.
-
-2) At the top, switch "Editor" to "Settings".
-
-3) Scroll down to **Updates**.
-
-4) In **Update URL**, paste the same link as above.
-
-5) Click **Save**.
-
-6) To check for updates, open the Tampermonkey extension panel from your browser, then select **Utilities** and **Check for userscript updates**.
