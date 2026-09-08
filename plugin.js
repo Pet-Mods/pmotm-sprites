@@ -1,6 +1,6 @@
     // ==UserScript==
     // @name         PMOTM Sprites
-    // @version      1.1
+    // @version      1.4.1
     // @description  Replace blank sprites for Pet Mods with their DH2 sprites
     // @author       iforgetwhyimhere
     // @match        *.psim.us/*
@@ -15,21 +15,25 @@
     const customSprites = new Set();
 
     async function loadCustomSprites() {
-        const url = 'https://raw.githubusercontent.com/Pet-Mods/pmotm-sprites/refs/heads/main/replacements.txt';
+        const url = 'https://raw.githubusercontent.com/Pet-Mods/pmotm-sprites/refs/heads/main/data.txt';
         try {
             const response = await fetch(url);
             if (!response.ok) throw new Error(`HTTP ${response.status}`);
             const text = await response.text();
 
-            text
-                .split('\n')
-                .map(line => line.trim().toLowerCase())
+            const lines = text.split('\n').map(line => line.trim());
+
+            const modIDLine = lines.find(line => line.toLowerCase().startsWith('#'));
+            const modID = modIDLine ? modIDLine.slice(1).trim() : null;
+
+            lines
+                .map(line => line.toLowerCase())
                 .filter(line => line.length > 0 && !line.startsWith('#'))
                 .forEach(entry => customSprites.add(entry));
 
-            console.log(`[PMOTM Sprites] Loaded ${customSprites.size} custom sprite IDs.`);
+            console.log(`[PMOTM Sprites] Loaded for mod ${modID}`);
         } catch (err) {
-            console.error('[PMOTM Sprites] Failed to load replacements.txt:', err);
+            console.error('[PMOTM Sprites] Failed to load.');
         }
     }
 
@@ -235,7 +239,7 @@
            if (customSprites.has(species.id)) {
                const direction = isFront ? 'front' : 'back';
                spriteData.url =
-                   `https://raw.githubusercontent.com/scoopapa/DH2/refs/heads/main/data/mods/deltamon/sprites/${direction}/${species.id}.png`;
+                   `https://raw.githubusercontent.com/scoopapa/DH2/refs/heads/main/data/mods/${modID}/sprites/${direction}/${species.id}.png`;
            }
            return spriteData;
         }
@@ -443,7 +447,7 @@
                            `;opacity:.3;filter:grayscale(100%) brightness(.5)` : ``);
 
             if (customSprites.has(id)) {
-                return `background:transparent url(https://raw.githubusercontent.com/scoopapa/DH2/refs/heads/main/data/mods/deltamon/sprites/icons/${id}.png) 0px 0px / 36px 36px no-repeat scroll${fainted}`;
+                return `background:transparent url(https://raw.githubusercontent.com/scoopapa/DH2/refs/heads/main/data/mods/${modID}/sprites/icons/${id}.png) 0px 0px / 36px 36px no-repeat scroll${fainted}`;
             }
             return `background:transparent url(${Dex.resourcePrefix}sprites/pokemonicons-sheet.png?v20) no-repeat scroll -${left}px -${top}px${fainted}`;
         }
