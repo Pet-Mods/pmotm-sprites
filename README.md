@@ -7,7 +7,7 @@ Requirements: [Tampermonkey Chrome extension][1], working brain
 
 When installing, ignore the errors that appear. It works because the definitions are handled in the site itself.
 
-The list of species names is maintained by me (iforgetwhyimhere) here in `replacements.txt`.
+The list of species names is maintained by me (iforgetwhyimhere) here in `data.txt`.
 
 ## How to install
 
